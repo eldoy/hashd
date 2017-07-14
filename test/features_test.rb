@@ -21,3 +21,5 @@ is t.nils.bedre, 3
 is t.nils.what, nil
 
 is t.string, 5
+
+is t.has_key?(:val), true
