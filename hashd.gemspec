@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'fuprint'
+  s.name        = 'hashd'
   s.version     = '0.0.1'
   s.date        = '2017-07-14'
   s.summary     = "Hash dot syntax"
