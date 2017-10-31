@@ -8,7 +8,7 @@ class Hash
 
   # Using method missing.
   def method_missing(name, *args, &block)
-    return super(name, *args, &block) unless use_dot_syntax
+    return super unless use_dot_syntax
 
     # Check for value first or assign
     if name[-1] == '='
@@ -18,14 +18,14 @@ class Hash
     end
 
     # Pass to methods if value not found
-    return super(name, *args, &block) if self.respond_to?(name)
+    return super if self.respond_to?(name)
   end
 
   private
 
   # Set up each hash for dot syntax
   def dotify(h)
-    h.use_dot_syntax = true; h.keys.each{|key| dotify(h[key]) if h[key].is_a?(::Hash)}
+    h.use_dot_syntax = true; h.keys.each{|k| dotify(h[k]) if h[k].is_a?(::Hash)}
   end
 
 end
